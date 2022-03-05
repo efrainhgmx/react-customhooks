@@ -16,4 +16,15 @@ const getViewport  = () => {
 export default function useViewport() {
     const[viewport, setViewport] = useState(getViewport());
     const oldResize =  (a: UIEvent) => any = window.onresize;
+    const onResize = (evt?: UIEvent) => {
+        evt && oldResize?.(evt);
+        return setViewport(getViewport());
+      };
+
+      window.onresize = onResize;
+      useEffect(() => {
+        onResize();
+      }, []);
+      
+      return [viewport];
 }
