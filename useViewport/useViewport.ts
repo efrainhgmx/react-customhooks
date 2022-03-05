@@ -13,3 +13,7 @@ const getViewport  = () => {
     return "largeDesktop";
 };
 
+export default function useViewport() {
+    const[viewport, setViewport] = useState(getViewport());
+    const oldResize =  (a: UIEvent) => any = window.onresize;
+}
