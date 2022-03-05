@@ -4,4 +4,4 @@ This is a list for some Custom Hooks for you can use in your React projects in T
 
 ## List of Hooks
 
-- [useViewport](https://github.com/efrainhgmx/react-customhooks/blob/main/useViewport/useViewport.ts, "useViewport")
+- [useViewport](https://github.com/efrainhgmx/react-customhooks/tree/main/useViewport, "useViewport")
