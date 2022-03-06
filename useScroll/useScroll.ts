@@ -1,3 +1,5 @@
+//This hook returns the X and Y position of Scroll in viewport
+
 import { useState, useEffect } from "react";
 
 const onScrollHandlers = [];
