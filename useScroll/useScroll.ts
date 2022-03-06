@@ -14,4 +14,33 @@ export default function useScroll() {
     );
     const [yDirection, setYDirection] = useState<"Up" | "Down" | "Initial">(
       "Initial"
-    );
+    ); 
+    useEffect(() => {
+        const handle = () => {
+          setXOffset((prevXOffset) => {
+            if (window.pageXOffset === 0) {
+              setXDirection("Initial");
+              return 0;
+            }
+            setXDirection(prevXOffset > window.pageXOffset ? "Left" : "Right");
+            return window.pageXOffset;
+          });
+    
+          setYOffset((prevYOffset) => {
+            if (window.pageYOffset === 0) {
+              setYDirection("Initial");
+              return 0;
+            }
+            setYDirection(prevYOffset > window.pageYOffset ? "Up" : "Down");
+            return window.pageYOffset;
+          });
+        };
+        onScrollHandlers.push(handle);
+        return () => {
+          const handleIndex = onScrollHandlers.indexOf(handle);
+          onScrollHandlers[handleIndex] = onScrollHandlers.pop();
+        };
+      }, []);
+    
+    }
+
