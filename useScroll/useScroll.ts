@@ -41,6 +41,12 @@ export default function useScroll() {
           onScrollHandlers[handleIndex] = onScrollHandlers.pop();
         };
       }, []);
-    
+      
+      return { 
+          xOffset, 
+          yOffset, 
+          xDirection, 
+          yDirection 
+        };
     }
 
